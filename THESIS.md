@@ -4,7 +4,7 @@
 
 **The first game engine built on chance instead of certainty.**
 
-[Read the live thesis site](https://charlesanthonyleone.github.io/rng-engine/)
+[See the live site](https://charlesanthonyleone.github.io/rng-engine/) · the site carries the product story; this document keeps the model, the rebuild phases and the risks.
 
 <p align="center"><img src="assets/readme/divider.svg" alt="" width="100%"></p>
 
@@ -27,9 +27,9 @@ An apple is not merely an item identifier. It has a particular shape, history, b
 That is the inversion. Categories and conservation laws remain coherent; exact sameness stops being the default. The engine samples admissible outcomes from fresh entropy, then commits the chosen outcome. A saved world preserves what happened. It does not preserve a recipe that can regenerate the same future.
 
 ```text
-ξₜ ← fresh entropy
-Sₜ₊₁ ∼ K( · | Sₜ, Aₜ, ξₜ )
-Lₜ₊₁ = append(Lₜ, committed event)
+xi[t]  = fresh entropy
+S[t+1] ~ K(S[t], A[t], xi[t])
+L[t+1] = append(L[t], committed event)
 ```
 
 S is world state, A is an action, K is a constrained transition kernel, and L is the durable event record. There is no public seed or reversible timeline. An event log records outcomes; it is not permission to undo them.
@@ -38,16 +38,17 @@ S is world state, A is an action, K is a constrained transition kernel, and L is
 - **True entropy is an engineering requirement.** A production design would need an auditable physical-entropy source, conditioning, health checks, and a failure policy. Browser `crypto.getRandomValues` is a cryptographically strong randomness interface, not a guarantee of a direct physical RNG.
 - **No rewind is a world rule.** Backups and disaster recovery are still necessary. Recovery must distinguish restoring a service from erasing player history. Debugging and audit tools may inspect recorded events without making the live universe replayable.
 
-## The six inverted layers, with math
+## The seven inverted layers, with math
 
-| Layer | Model | Constraint |
+| Layer | Model | Line |
 |---|---|---|
-| 1. Substrate | `ξₜ ← Eₚₕᵧₛ ; τₜ₊₁ > τₜ` | Fresh entropy enters; the logical clock still preserves causal order. Entropy never substitutes for memory safety. |
-| 2. Simulation | `sₜ₊₁ ∼ Kₚₕᵧₛ( · \| sₜ, aₜ, ξₜ )` | A transition is sampled within physical constraints. Random perturbation must not create free energy or impossible momentum. |
-| 3. Representation | `rₜ ∼ P( · \| sₜ, viewpoint, ξₜ )` | Variation belongs inside a validated appearance envelope. Identity, collision boundaries, and accessibility cannot drift arbitrarily. |
-| 4. Structure | `Gₜ₊₁ ∼ Kɢ( · \| Gₜ, event, ξₜ )` | A world graph evolves; referential integrity and durable identifiers survive the roll. Similar objects are not identical instances. |
-| 5. Behavior | `aₜ ∼ π( · \| sₜ, intent, ξₜ )` | Scripts specify admissible tendencies. Hard rules, player consent, and safety limits remain non-negotiable constraints. |
-| 6. Social | `eₜ ← authority ; Lₜ₊₁ = append(Lₜ, eₜ)` | The server commits one event and distributes it. Clients do not independently roll contradictory shared realities. |
+| 1. Substrate | `xi[t] = entropy()` | Memory, math, and the clock itself are non-deterministic. There is no seed to find and no state to replay. |
+| 2. Clock | `t[n+1] = pick(t'a, t'b, t'c)` | Time doesn't tick; it rolls. Every moment branches into possible next moments and one becomes real. Time only moves forward. |
+| 3. Simulation | `s[t+1] ~ K(s[t], a[t], xi[t])` | Physics, AI, and anything that ticks forward. Outcomes fork. Throw the same rock twice and you get two histories. |
+| 4. Representation | `r[t] ~ P(view, s[t], xi[t])` | Rendering and audio. A texture loads differently each time, a sound never plays the same. What you see is a moment, not a copy. |
+| 5. Structure | `G[t+1] = reorg(G[t], alive[t], xi[t])` | The scene graph reorganizes around what's alive. No two instances are identical by default; identity is earned, not assumed. |
+| 6. Behavior | `a[t] ~ pi(intent, s[t], xi[t])` | Scripting and logic. Rules bend under probability. Code describes tendencies, and the world decides. |
+| 7. Social | `L[t+1] = append(L[t], e[t])` | Networking, persistence, player-to-player and player-to-world connections. Shared reality, built from rolls nobody can predict or rewind. |
 
 ## The $15/month pay-to-generate economy
 
