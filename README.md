@@ -1,10 +1,19 @@
+<p align="center">
+  <a href="https://charlesanthonyleone.github.io/rng-engine/"><img src="assets/readme/banner.png" alt="RNG Engine: a moonlit bay, rolled from true randomness. Every load of the live site draws a different one." width="100%"></a>
+</p>
+
+<p align="center">
+  <a href="https://charlesanthonyleone.github.io/rng-engine/"><b>Enter the bay &rarr; live site</b></a>
+  &nbsp;&middot;&nbsp; <sub>the scene is drawn from <code>crypto.getRandomValues</code>. No seed, no replay, never the same twice.</sub>
+</p>
+
 # RNG Engine
 
 **The first game engine built on chance instead of certainty.**
 
 Every engine you've ever used assumes determinism: same input, same output, forever. RNG Engine flips that. True randomness, with no seeds and no rewind, is the ground everything stands on. Nothing happens the same way twice, and that's the point.
 
----
+<p align="center"><img src="assets/readme/divider.svg" alt="" width="100%"></p>
 
 ## The Inverted Stack
 
@@ -28,7 +37,7 @@ Scripting and logic. Rules bend under probability. Code describes tendencies, an
 ### 6. Social
 Networking, persistence, player-to-player and player-to-world connections. Shared reality, built from rolls nobody can predict or rewind.
 
----
+<p align="center"><img src="assets/readme/divider.svg" alt="" width="100%"></p>
 
 ## The Economy Layer
 
@@ -44,7 +53,7 @@ On top of the stack sits the economy: **people pay to generate.**
 
 The cost is the filter. It keeps the universe from becoming a junk drawer of 18 trillion low-quality things, and it makes rare finds actually rare.
 
----
+<p align="center"><img src="assets/readme/divider.svg" alt="" width="100%"></p>
 
 ## The Vision
 
@@ -52,7 +61,7 @@ A randomly generated universe where anything someone can imagine can be real, wi
 
 Not infinite noise. Infinite *meaning*, because every thing in it cost someone something to bring into being.
 
----
+<p align="center"><img src="assets/readme/divider.svg" alt="" width="100%"></p>
 
 ## The Standard
 
@@ -60,6 +69,6 @@ The bar is simple: **ship one full game on it.**
 
 The method: reverse-engineer Unreal Engine down to its single core assumption, determinism. Tear that out. Replace it with true RNG. Then rebuild every feature on top, layer by layer, until nothing is missing and nothing is the same.
 
----
+<p align="center"><img src="assets/readme/divider.svg" alt="" width="100%"></p>
 
 *Status: concept and architecture. Built by Charles Anthony Leone.*
