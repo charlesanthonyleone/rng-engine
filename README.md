@@ -3,7 +3,7 @@
 </p>
 
 <p align="center">
-  <a href="https://charlesanthonyleone.github.io/rng-engine/"><b>Enter the bay &rarr; live site</b></a>
+  <a href="https://charlesanthonyleone.github.io/rng-engine/"><b>Enter the bay &rarr; live site</b></a> &nbsp;&middot;&nbsp; <a href="THESIS.md"><b>Full thesis</b></a>
   &nbsp;&middot;&nbsp; <sub>the scene is drawn from <code>crypto.getRandomValues</code>. No seed, no replay, never the same twice.</sub>
 </p>
 
@@ -68,6 +68,12 @@ Not infinite noise. Infinite *meaning*, because every thing in it cost someone s
 The bar is simple: **ship one full game on it.**
 
 The method: reverse-engineer Unreal Engine down to its single core assumption, determinism. Tear that out. Replace it with true RNG. Then rebuild every feature on top, layer by layer, until nothing is missing and nothing is the same.
+
+<p align="center"><img src="assets/readme/divider.svg" alt="" width="100%"></p>
+
+## The Full Thesis
+
+The complete, bank-ready articulation lives in **[THESIS.md](THESIS.md)** and on the [live site](https://charlesanthonyleone.github.io/rng-engine/): the executive summary, the no-seed, no-rewind substrate and the apple analogy, the math behind each of the six inverted layers, the $15/month pay-to-generate economy with break-even and three-year projections (every assumption labeled; hypothetical, not results), the Roblox / Unreal / No Man's Sky vision, the phased Unreal rebuild plan, and the risks.
 
 <p align="center"><img src="assets/readme/divider.svg" alt="" width="100%"></p>
 

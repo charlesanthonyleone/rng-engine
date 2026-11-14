@@ -22,7 +22,7 @@
 
 <nav class="nav glass" aria-label="Primary">
   <a class="brand" href="#top"><svg class="mark" viewBox="0 0 32 32" aria-hidden="true"><circle cx="22" cy="9" r="3.2"/><path d="M2 21c4-5 7-7 10-7 3 0 4 3 7 3 3 0 6-3 11-3v4c-5 0-8 3-11 3-3 0-4-2-7-2-3 0-6 2-10 6z"/><path class="w" d="M2 27c3-1 5-2 8-2s5 2 8 2 6-2 12-2"/></svg>RNG Engine</a>
-  <span class="links"><a href="#stack">Stack</a><a href="#economy">Economy</a><a href="#vision">Vision</a><a href="#standard">Standard</a><a href="https://github.com/charlesanthonyleone/rng-engine" rel="noopener">GitHub ↗</a></span>
+  <span class="links"><a href="#summary">Thesis</a><a href="#stack">Stack</a><a href="#economy">Economy</a><a href="#vision">Vision</a><a href="#standard">Plan</a><a href="#risks">Risks</a><a href="https://github.com/charlesanthonyleone/rng-engine" rel="noopener">GitHub ↗</a></span>
 </nav>
 
 <main id="top">
@@ -30,14 +30,42 @@
   <p class="eyebrow">Concept · Architecture</p>
   <h1>RNG Engine</h1>
   <p class="tagline"><strong>The first game engine built on chance instead of certainty.</strong></p>
-  <p class="cta"><a class="btn" href="#stack">Read the stack</a><a class="btn ghost" href="#economy">The economy</a><a class="btn ghost" href="https://github.com/charlesanthonyleone/rng-engine" rel="noopener">GitHub ↗</a></p>
+  <p class="cta"><a class="btn" href="#summary">Read the thesis</a><a class="btn ghost" href="#economy">The economy</a><a class="btn ghost" href="https://github.com/charlesanthonyleone/rng-engine" rel="noopener">GitHub ↗</a></p>
   <p class="roll"><span class="dot"></span>This bay was rolled for you<span class="sep">·</span><code id="roll-id">--------</code><span class="sep">·</span>it will not load this way again <button type="button" id="reroll" class="reroll">Roll again</button></p>
-  <a class="cue" href="#stack" aria-label="Scroll to the stack"><span></span></a>
+  <a class="cue" href="#summary" aria-label="Read the thesis"><span></span></a>
 </header>
+
+<section class="opening">
+  <div class="inner narrow">
+  <p class="prologue">Every engine you've ever used assumes determinism: same input, same output, forever. RNG Engine flips that. True randomness, with no seeds and no rewind, is the ground everything stands on. Nothing happens the same way twice, and that's the point.</p>
+  </div>
+</section>
+
+<section id="summary" class="chapter summary" data-covers-bay>
+  <div class="inner">
+    <p class="kicker">Executive summary · a design thesis, not a shipped engine</p>
+    <h2>A universe is not<br>a replay file.</h2>
+    <div class="editorial">
+      <p class="chapter-lead">Most worlds are generated once and then operated. RNG Engine asks a larger question: what if becoming were the operating principle?</p>
+      <div class="chapter-copy"><p>The proposition is a persistent, shared universe in which creation is an irreversible event. Fresh entropy enters at the substrate. Physics constrains the possible; chance chooses the particular. AI turns an intention into a candidate, validation makes it admissible, and a durable record makes it part of the world.</p><p>The business model follows the same distinction: a subscription funds access and a bounded allowance of generation. Additional complexity consumes more credits. People pay for the act of bringing something into being—not for a scarce item to flip.</p><p><strong>The proof gate is one complete, playable, shippable game.</strong> This page is the architectural and commercial thesis. The animated bay illustrates its aesthetic and non-repeatable composition; it is not evidence that the engine, asset pipeline, physics system, or business has been built or validated.</p></div>
+    </div>
+    <div class="thesis-facts"><p><b>One-way creation</b><span>No seed. No rollback of history.</span></p><p><b>Shared reality</b><span>One authoritative record, not one roll per client.</span></p><p><b>Earned scale</b><span>Ship a full game before claiming a universe.</span></p></div>
+  </div>
+</section>
+
+<section id="substrate-thesis" class="chapter foundations" data-covers-bay>
+  <div class="inner">
+    <p class="kicker">The no-seed, no-rewind substrate</p>
+    <h2>The apple is an event.</h2>
+    <div class="editorial"><p class="chapter-lead">Plant the same kind of tree in the same kind of soil. You do not get the same apple back.</p><div class="chapter-copy"><p>An apple is not merely an item identifier. It has a particular shape, history, bruising, weight, and relation to the branch that grew it. Another apple can share its category without being its copy. Once picked, that event happened. Recording it does not mean that time can be rewound to unpick it.</p><p>That is the inversion. Categories and conservation laws remain coherent; exact sameness stops being the default. The engine samples admissible outcomes from fresh entropy, then commits the chosen outcome. A saved world preserves what happened. It does not preserve a recipe that can regenerate the same future.</p></div></div>
+    <div class="equation"><code>ξₜ ← fresh entropy<br>Sₜ₊₁ ∼ K( · | Sₜ, Aₜ, ξₜ )<br>Lₜ₊₁ = append(Lₜ, committed event)</code><p>S is world state, A is an action, K is a constrained transition kernel, and L is the durable event record. There is no public seed or reversible timeline. An event log records outcomes; it is not permission to undo them.</p></div>
+    <div class="truth-notes"><p><b>Random does not mean inconsistent.</b> “Non-deterministic math” means sampling within a mathematical model—not randomly changing arithmetic, corrupting memory, or letting a clock run backward. Memory safety, causal order, conservation constraints, and accounting must remain reliable. The literal universal substrate is a research ambition, not an implemented capability.</p><p><b>True entropy is an engineering requirement.</b> A production design would need an auditable physical-entropy source, conditioning, health checks, and a failure policy. Browser <code>crypto.getRandomValues</code> is a cryptographically strong randomness interface, not a guarantee of a direct physical RNG. It makes this scene hard to predict; it does not prove the full thesis.</p><p><b>No rewind is a world rule.</b> Backups and disaster recovery are still necessary. Recovery must distinguish restoring a service from erasing player history. Debugging and audit tools may inspect recorded events without making the live universe replayable.</p></div>
+  </div>
+</section>
 
 <section class="surface">
   <div class="inner narrow">
-  <p class="prologue rv">Every engine you've ever used assumes determinism: same input, same output, forever. RNG Engine flips that. True randomness, with no seeds and no rewind, is the ground everything stands on. Nothing happens the same way twice, and that's the point.</p>
+
   </div>
   <div id="stack" class="inner narrow stackhead">
     <p class="kicker">The engine, layer by layer</p>
@@ -53,37 +81,37 @@
 
   <article class="stratum s1 rv">
     <div class="sx"><span class="num">01</span><span class="zone">Abyssal floor · the ground</span></div>
-    <div class="sb"><h3>Substrate</h3><p>Memory, math, and the clock itself are non-deterministic. Time doesn't tick; it rolls. This is the core assumption every other engine gets "right," and the one we replace.</p></div>
+    <div class="sb"><h3>Substrate</h3><p>Memory, math, and the clock itself are non-deterministic. Time doesn't tick; it rolls. This is the core assumption every other engine gets "right," and the one we replace.</p><div class="layer-math"><code>ξₜ ← Eₚₕᵧₛ ; τₜ₊₁ > τₜ</code><small>Fresh entropy enters; the logical clock still preserves causal order. Entropy never substitutes for memory safety.</small></div></div>
   </article>
   <svg class="contour" viewBox="0 0 1440 60" preserveAspectRatio="none" aria-hidden="true"><path d="M0 34 C 180 10, 320 52, 520 30 S 860 8, 1040 30 S 1320 50, 1440 24"/><path class="b" d="M0 44 C 220 26, 380 58, 600 40 S 940 22, 1120 42 S 1360 54, 1440 36"/></svg>
 
   <article class="stratum s2 rv">
     <div class="sx"><span class="num">02</span><span class="zone">Midnight water · forks</span></div>
-    <div class="sb"><h3>Simulation</h3><p>Physics, AI, and anything that ticks forward. Outcomes fork. Throw the same rock twice and you get two histories. Real physics, never replayed.</p></div>
+    <div class="sb"><h3>Simulation</h3><p>Physics, AI, and anything that ticks forward. Outcomes fork. Throw the same rock twice and you get two histories. Real physics, never replayed.</p><div class="layer-math"><code>sₜ₊₁ ∼ Kₚₕᵧₛ( · | sₜ, aₜ, ξₜ )</code><small>A transition is sampled within physical constraints. Random perturbation must not create free energy or impossible momentum.</small></div></div>
   </article>
   <svg class="contour" viewBox="0 0 1440 60" preserveAspectRatio="none" aria-hidden="true"><path d="M0 26 C 240 46, 420 8, 640 28 S 980 50, 1180 26 S 1380 12, 1440 30"/><path class="b" d="M0 38 C 200 52, 460 22, 700 40 S 1000 56, 1220 38 S 1400 26, 1440 42"/></svg>
 
   <article class="stratum s3 rv">
     <div class="sx"><span class="num">03</span><span class="zone">Twilight water · light arrives</span></div>
-    <div class="sb"><h3>Representation</h3><p>Rendering and audio. A texture loads differently each time, a sound never plays the same. What you see is a moment, not a copy.</p></div>
+    <div class="sb"><h3>Representation</h3><p>Rendering and audio. A texture loads differently each time, a sound never plays the same. What you see is a moment, not a copy.</p><div class="layer-math"><code>rₜ ∼ P( · | sₜ, viewpoint, ξₜ )</code><small>Variation belongs inside a validated appearance envelope. Identity, collision boundaries, and accessibility cannot drift arbitrarily.</small></div></div>
   </article>
   <svg class="contour" viewBox="0 0 1440 60" preserveAspectRatio="none" aria-hidden="true"><path d="M0 30 C 160 12, 380 50, 560 28 S 900 6, 1100 28 S 1340 48, 1440 22"/><path class="b" d="M0 42 C 260 28, 400 56, 620 42 S 920 20, 1140 40 S 1380 52, 1440 34"/></svg>
 
   <article class="stratum s4 rv">
     <div class="sx"><span class="num">04</span><span class="zone">Shallows · form takes shape</span></div>
-    <div class="sb"><h3>Structure</h3><p>Scene graph, entities, relations. Sameness is inverted: no two instances are identical by default. Identity is earned, not assumed.</p></div>
+    <div class="sb"><h3>Structure</h3><p>Scene graph, entities, relations. Sameness is inverted: no two instances are identical by default. Identity is earned, not assumed.</p><div class="layer-math"><code>Gₜ₊₁ ∼ Kɢ( · | Gₜ, event, ξₜ )</code><small>A world graph evolves; referential integrity and durable identifiers survive the roll. Similar objects are not identical instances.</small></div></div>
   </article>
   <svg class="contour shore" viewBox="0 0 1440 60" preserveAspectRatio="none" aria-hidden="true"><path d="M0 30 C 200 18, 360 44, 560 30 S 880 14, 1080 32 S 1320 44, 1440 28"/><path class="b" d="M0 36 C 220 26, 380 50, 600 38 S 900 22, 1120 38 S 1360 50, 1440 34"/></svg>
 
   <article class="stratum s5 rv">
     <div class="sx"><span class="num">05</span><span class="zone">The shore · rules meet the tide</span></div>
-    <div class="sb"><h3>Behavior</h3><p>Scripting and logic. Rules bend under probability. Code describes tendencies, and the world decides.</p></div>
+    <div class="sb"><h3>Behavior</h3><p>Scripting and logic. Rules bend under probability. Code describes tendencies, and the world decides.</p><div class="layer-math"><code>aₜ ∼ π( · | sₜ, intent, ξₜ )</code><small>Scripts specify admissible tendencies. Hard rules, player consent, and safety limits remain non-negotiable constraints.</small></div></div>
   </article>
   <svg class="contour land" viewBox="0 0 1440 60" preserveAspectRatio="none" aria-hidden="true"><path d="M0 40 C 180 30, 300 14, 480 22 S 760 44, 980 30 S 1260 8, 1440 18"/><path class="b" d="M0 48 C 200 40, 340 26, 520 32 S 800 52, 1020 40 S 1280 20, 1440 30"/></svg>
 
   <article class="stratum s6 rv">
     <div class="sx"><span class="num">06</span><span class="zone">The land · where people live</span></div>
-    <div class="sb"><h3>Social</h3><p>Networking, persistence, player-to-player and player-to-world connections. Shared reality, built from rolls nobody can predict or rewind.</p></div>
+    <div class="sb"><h3>Social</h3><p>Networking, persistence, player-to-player and player-to-world connections. Shared reality, built from rolls nobody can predict or rewind.</p><div class="layer-math"><code>eₜ ← authority ; Lₜ₊₁ = append(Lₜ, eₜ)</code><small>The server commits one event and distributes it. Clients do not independently roll contradictory shared realities.</small></div></div>
   </article>
 </section>
 
@@ -110,6 +138,21 @@
       </div>
     </div>
     <p class="filter rv">The cost is the filter. It keeps the universe from becoming a junk drawer of 18 trillion low-quality things, and it makes rare finds actually rare.</p>
+    <div class="finance rv">
+      <div class="finance-head"><p class="kicker">Break-even model</p><h3>What $15 has to carry.</h3><p>The subscription must cover generation compute, validation and moderation, permanent storage, payment processing, and a fixed operating base. These are planning assumptions for a model—not observed revenue, costs, customers, or company performance.</p></div>
+      <div class="unit-strip" aria-label="Illustrative monthly unit economics">
+        <p><b>$15.00</b><span>assumed monthly subscription</span></p><p><b>−$0.74</b><span>payment processing estimate: 2.9% + $0.30</span></p><p><b>−$4.00</b><span>included generation compute + validation</span></p><p><b>−$1.25</b><span>storage, bandwidth, moderation, support</span></p><p class="margin"><b>$9.01</b><span>illustrative contribution / member / month</span></p>
+      </div>
+      <div class="breakeven"><p class="formula"><code>break-even subscribers = fixed monthly operating cost ÷ monthly contribution per member</code></p><p class="calc"><span>$300,000 ÷ $9.01</span><b>≈ 33,300 paid members</b></p><p class="small">Assumes a $300,000 monthly fixed base for engineering, infrastructure, legal and safety operations, and administration. Taxes, refunds, chargebacks, content licensing, and financing costs are excluded and would raise the threshold.</p></div>
+      <div class="projection-wrap">
+        <table class="projection"><caption>Illustrative three-year operating projection</caption><thead><tr><th scope="col">Scenario at year-end</th><th scope="col">Year 1</th><th scope="col">Year 2</th><th scope="col">Year 3</th></tr></thead><tbody>
+          <tr><th scope="row">Conservative paid members</th><td>8,000</td><td>22,000</td><td>45,000</td></tr><tr><th scope="row">Conservative annualized subscription revenue</th><td>$1.44M</td><td>$3.96M</td><td>$8.10M</td></tr><tr><th scope="row">Conservative annualized contribution</th><td>$0.87M</td><td>$2.38M</td><td>$4.87M</td></tr>
+          <tr class="split"><th scope="row">Base paid members</th><td>15,000</td><td>45,000</td><td>100,000</td></tr><tr><th scope="row">Base annualized subscription revenue</th><td>$2.70M</td><td>$8.10M</td><td>$18.00M</td></tr><tr><th scope="row">Base annualized contribution</th><td>$1.62M</td><td>$4.87M</td><td>$10.81M</td></tr>
+        </tbody></table>
+      </div>
+      <div class="assumption-grid"><p><b>Revenue</b>Paid members × $15 × 12; no add-on credit sales, advertising, enterprise licensing, or price change.</p><p><b>Contribution</b>Uses the $9.01 monthly member contribution above, before fixed costs, taxes, and capital expenditure.</p><p><b>Generation cap</b>Assumes the plan limits included generation so average compute stays near $4. Heavy-use tiers would require separate pricing or throttling.</p><p><b>Status</b>Hypothetical scenario only. No actual traction, fundraising, valuation, partner, or audited result is represented.</p></div>
+    </div>
+
   </div>
 </section>
 
@@ -118,17 +161,46 @@
     <p class="kicker">The Vision</p>
     <p class="statement">A randomly generated universe where anything someone can imagine can be real, with real physics. Spaceships. Flying surfboards. Whatever you can name, the world can hold it and it behaves like it belongs there.</p>
     <p class="coda">Not infinite noise. Infinite <em>meaning</em>, because every thing in it cost someone something to bring into being.</p>
+    <div class="peer-grid rv" aria-label="Product comparisons">
+      <p><b>Roblox</b><span>proved that creators and players can share a vast platform. RNG Engine would invert the authored-object model: creation becomes an irreversible world event, not a repeatable asset upload.</span></p>
+      <p><b>Unreal</b><span>sets the professional bar for rendering, tooling, physics, and production. The proposal is to understand that stack deeply, identify where repeatability is assumed, and rebuild that layer around fresh entropy.</span></p>
+      <p><b>No Man's Sky</b><span>demonstrates the scale and wonder of procedural space. RNG Engine aims for a different property: discoveries that are not regenerated from a seed, and creations whose rarity comes from cost and history.</span></p>
+    </div>
+    <p class="vision-note rv">These are reference points for scale and ambition—not claims of partnership, compatibility, endorsement, equivalent capability, or market position.</p>
+
   </div>
 </section>
 
 <section id="standard" class="standard">
   <div class="inner rv">
-    <p class="kicker">The Standard</p>
+    <p class="kicker">The standard · phased rebuild plan</p>
     <p class="bar">The bar is simple: <strong>ship one full game on it.</strong></p>
     <p class="method">The method: reverse-engineer Unreal Engine down to its single core assumption, determinism. Tear that out. Replace it with true RNG. Then rebuild every feature on top, layer by layer, until nothing is missing and nothing is the same.</p>
-    <ol class="steps" aria-hidden="true"><li><i></i>Reverse-engineer</li><li><i></i>Tear out determinism</li><li><i></i>Replace with true RNG</li><li><i></i>Rebuild every feature</li></ol>
+    <ol class="phases">
+      <li><span>Phase 0</span><h3>Map the assumption</h3><p>Use permitted documentation, licensed source access, and clean-room analysis to map where repeatability is assumed: random streams, save systems, replication, physics stepping, tests, and asset identity.</p><small>Gate: dependency map, licensing review, and measurable invariants.</small></li>
+      <li><span>Phase 1</span><h3>Build the entropy kernel</h3><p>Create the entropy service, constrained sampling layer, logical clock, and immutable event record with explicit failure behavior.</p><small>Gate: health tests, audit logs, and state integrity under failure.</small></li>
+      <li><span>Phase 2</span><h3>Prove one bounded slice</h3><p>Build one small world and one complete loop: a player acts, physics samples an admissible outcome, the event commits, and every connected player sees the same result.</p><small>Gate: stable playtests on supported hardware and networks.</small></li>
+      <li><span>Phase 3</span><h3>Add generation and economy</h3><p>Connect intent-to-asset generation, validation, moderation, storage, and credit metering without creating resale incentives.</p><small>Gate: cost per verb and quality thresholds meet the model.</small></li>
+      <li><span>Phase 4</span><h3>Rebuild the feature stack</h3><p>Expand rendering, audio, AI, scripting, tooling, creator workflows, and persistence until the full game can be built without hand-waving.</p><small>Gate: feature-complete content pipeline and production QA.</small></li>
+      <li><span>Phase 5</span><h3>Ship the proof</h3><p>Release one complete game, measure retention and cost in production, and expand toward a universe only after the bar is met.</p><small>Gate: public, supported, maintained release.</small></li>
+    </ol>
   </div>
 </section>
+
+<section id="risks" class="risks" data-covers-bay>
+  <div class="inner">
+    <div class="risk-head rv"><p class="kicker">Risks and mitigations</p><h2>Where the thesis can break.</h2><p>A serious thesis states the failure modes before they find it.</p></div>
+    <div class="risk-list">
+      <article class="rv"><b>01</b><h3>Engineering correctness</h3><p>Randomness can be mistaken for permission to corrupt memory, arithmetic, or timing. The architecture must keep integrity guarantees deterministic where safety requires them and randomize only admissible outcomes.</p></article>
+      <article class="rv"><b>02</b><h3>Testing and debugging</h3><p>Non-repeatable worlds are harder to test. Use invariant tests, statistical acceptance tests, observability, and auditable event histories rather than relying only on exact replay.</p></article>
+      <article class="rv"><b>03</b><h3>Multiplayer consistency</h3><p>Independent client rolls would split reality. An authoritative commit protocol, conflict handling, latency budgets, and anti-cheat controls are required.</p></article>
+      <article class="rv"><b>04</b><h3>Generation cost and quality</h3><p>Asset generation, validation, moderation, and storage may exceed $15 per member. Metered verbs, usage caps, quality gates, and cost monitoring are mandatory.</p></article>
+      <article class="rv"><b>05</b><h3>Legal, licensing, and IP</h3><p>Unreal is licensed technology. Reverse-engineering, engine changes, content generation, and distribution must follow applicable licenses and law; legal review belongs at the start, not after the build.</p></article>
+      <article class="rv"><b>06</b><h3>Safety and trust</h3><p>Permanent generation can preserve harmful, infringing, or unwanted content. Moderation, takedown processes, privacy controls, and recovery policies must coexist with the no-rewind principle.</p></article>
+    </div>
+  </div>
+</section>
+
 </main>
 
 <footer class="foot">
